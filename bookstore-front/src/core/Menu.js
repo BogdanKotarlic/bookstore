@@ -14,11 +14,11 @@ const Menu = ({ history }) => {
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">Home</Link>
+                        <li className="nav-item link">
+                            <Link className="nav-link" to="/" style={{color: 'white'}}>Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/cart">Cart</Link>
+                        <li className="nav-item link">
+                            <Link className="nav-link" to="/cart" style={{color: 'white'}}>Cart</Link>
                         </li>
                     </ul>
 				</div>

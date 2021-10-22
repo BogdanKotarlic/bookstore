@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import './Home.css';
 import Menu from './Menu';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const homeScreen = () => {
@@ -14,7 +15,9 @@ const Home = () => {
                     </div>
                     <div className="col-12">
                         <img className="img-fluid" src="/images/best_book.png" alt="best-book" />
-                        <button className="btn btn-primary" style={{width: '30%'}}>BUY</button>
+                        <Link to='/cart'>
+                            <button className="btn btn-primary" style={{width: '30%'}}>Add to Cart</button>
+                        </Link>
                     </div>
                 </div>
             </div>
