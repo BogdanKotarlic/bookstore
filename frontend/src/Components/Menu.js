@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import './Menu.css';
 
 const Menu = ({ history }) => {
     return (
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+        <nav class="navbar navbar-dark bg-primary sticky-top">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">
 					<img src="/images/book.png" alt="logo" style={{width: '50px', height: '50px'}} />
@@ -15,10 +15,7 @@ const Menu = ({ history }) => {
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
                         <li className="nav-item link">
-                            <Link className="nav-link" to="/" style={{color: 'white'}}>Home</Link>
-                        </li>
-                        <li className="nav-item link">
-                            <Link className="nav-link" to="/cart" style={{color: 'white'}}>Cart</Link>
+                            <a className="nav-link" href="#" style={{color: 'white'}}>Home</a>
                         </li>
                     </ul>
 				</div>
@@ -27,4 +24,4 @@ const Menu = ({ history }) => {
     );
 };
 
-export default withRouter(Menu);
+export default Menu;
