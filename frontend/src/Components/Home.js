@@ -28,11 +28,10 @@ const Home = () => {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Buy</Modal.Title>
+                    <Modal.Title>Please fill out this form</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Order />
-                    <div>Ovde staviti cenu i namestiti da se povecava i smanjuje</div>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="warning" onClick={handleClose}>Close</Button>
