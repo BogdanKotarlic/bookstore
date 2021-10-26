@@ -14,7 +14,8 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
     amount: {
-        type: Number
+        type: Number,
+        required: true
     },
     price: {
         type: Number

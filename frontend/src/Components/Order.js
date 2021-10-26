@@ -1,5 +1,5 @@
 import { Form, Button } from "react-bootstrap";
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { create } from "../core/apiCore";
 
 const Order = () => {
@@ -10,7 +10,6 @@ const Order = () => {
         address: "",
         phone: ""
     });
-
 
     const { name, address, phone } = data;
     const price = amount*15;
@@ -27,27 +26,39 @@ const Order = () => {
         name, address, phone, amount, price
     };
 
+    const clearForm = () => {
+        document.getElementById("newOrder").reset();
+        setAmount(0);
+    };
+
     const buy = event => {
         event.preventDefault();
+        let s = document.getElementById('success');
+        let e = document.getElementById('error');
 
-        create(createOrderData)
-        .then(response => {
-            console.log("success");
-            console.log(JSON.stringify(createOrderData));
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
+        if (createOrderData.name !== "" && createOrderData.address !== "" && createOrderData.phone !== "" && createOrderData.amount !== 0){
+            create(createOrderData)
+            .then(response => {
+                clearForm();
+                console.log(JSON.stringify(createOrderData));
+                s.style.display = "block";
+                e.style.display= "none";
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        } else {
+            e.style.display= "block";
+        }
     };
 
     return (
-        <Form>
+        <Form id="newOrder">
             <Form.Group style={{marginBottom: '10px'}}>
                 <Form.Control
                     type="text"
                     placeholder="Full Name *"
-                    required
+                    refs="name"
                     onChange={handleChange("name")}
                 />
             </Form.Group>
@@ -56,6 +67,7 @@ const Order = () => {
                     as="textarea"
                     placeholder="Address *"
                     rows={3}
+                    refs="address"
                     onChange={handleChange("address")}
                 />
             </Form.Group>
@@ -63,7 +75,7 @@ const Order = () => {
                 <Form.Control
                     type="text"
                     placeholder="Phone *"
-                    required
+                    refs="phone"
                     onChange={handleChange("phone")}
                 />
             </Form.Group>
@@ -71,13 +83,15 @@ const Order = () => {
                 <Form.Control
                     type="number"
                     placeholder="Amount *"
-                    required
+                    refs="amount"
                     value={amount}
                     onChange={(event) => handleCount(event)}
                 />
             </Form.Group>
             <p style={{marginBottom: '20px', fontWeight: 'bold'}}>Subtotal: ${amount*15}</p>
             <Button onClick={buy} variant="primary" type="submit">Buy</Button>
+            <p id="success" className="text-success" style={{marginTop: '10px', display: 'none'}}>Your order is saved.</p>
+            <p id="error" className="text-danger" style={{marginTop: '10px', display: 'none'}}>Please fill all the required fields.</p>
         </Form>
     );
 };
