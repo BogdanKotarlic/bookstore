@@ -12,6 +12,7 @@ const Home = () => {
 
     return (
         <>
+            <Menu />
             <div className="container-fluid padding">
                 <div className="row text-center">
                     <div className="col-12">
@@ -25,7 +26,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Please fill out this form</Modal.Title>
@@ -37,6 +37,7 @@ const Home = () => {
                     <Button variant="warning" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
+            <Footer />
         </>
     )
 };

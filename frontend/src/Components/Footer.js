@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -19,6 +20,9 @@ const Footer = () => {
             <div className="text-center p-3">
                 @ 2021 Copyright:
                 <a className="text-white" href="#"> Bogdan Kotarlic</a>
+                <Link to="/admin">
+                    <p style={{fontStyle: 'italic'}}>Admin Panel</p>
+                </Link>
             </div>
         </footer>
     );

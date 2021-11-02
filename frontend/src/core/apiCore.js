@@ -14,3 +14,27 @@ export const create = (createOrderData) => {
         })
         .catch(err => console.log(err));
 };
+
+export const listOrders = () => {
+    return fetch(`${API}/order/list`, {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        }
+    }).then(response => {
+        return response.json();
+    }).catch(err => console.log(err));
+};
+
+export const deleteOrder = (orderId) => {
+    return fetch(`${API}/order/${orderId}`, {
+        method: "DELETE",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        }
+    }).then(response => {
+        return response.json();
+    }).catch(err => console.log(err)); 
+}
